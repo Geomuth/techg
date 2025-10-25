@@ -6,44 +6,329 @@
   <title>TechBlog | Services & Tutorials</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
+    /* ---------- Reset & base ---------- */
     *{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif}
     html,body{height:100%}
-    body{background:white;color:#333;line-height:1.6;overflow-x:hidden}
+    body{background: linear-gradient(135deg, #1a2a3a 0%, #2c3e50 100%);color:#333;line-height:1.6;overflow-x:hidden}
     .container{max-width:1200px;margin:0 auto;padding:0 20px}
 
-    header{background:linear-gradient(135deg,#2c3e50 0%,#34495e 100%);color:#fff;padding:1rem 0;box-shadow:0 4px 15px rgba(0,0,0,0.1);position:sticky;top:0;z-index:1200}
+    /* ---------- Header / Nav ---------- */
+    header{background:linear-gradient(135deg,#2c3e50 0%,#34495e 100%);color:#fff;padding:1rem 0;box-shadow:0 4px 15px rgba(0,0,0,0.1);position:sticky;top:0;z-index:1200;backdrop-filter:blur(8px)}
     .header-content{display:flex;align-items:center;gap:16px;justify-content:space-between}
-    .logo{font-size:1.6rem;font-weight:800;color:#3498db}
+    .logo{font-size:1.6rem;font-weight:800;color:#3498db;letter-spacing:-0.5px;text-shadow:2px 2px 4px rgba(0,0,0,0.25)}
+    /* desktop nav */
     .desktop-nav ul{display:flex;list-style:none;gap:1rem;align-items:center}
     .desktop-nav a{color:#fff;text-decoration:none;font-weight:600;padding:8px 14px;border-radius:20px;transition:all .25s}
-    .desktop-nav a:hover{color:#3498db;background:rgba(255,255,255,0.06)}
+    .desktop-nav a:hover{color:#3498db;background:rgba(255,255,255,0.06);transform:translateY(-2px)}
+    /* search box inside nav */
+    #articles h2{
+        color: rgb(7, 253, 7);
+    }
+    #services h2{
+        color: rgb(5, 245, 5);
+    }
+    .nav-search {
+      display:flex;
+      align-items:center;
+      gap:8px;
+      background:rgba(65, 60, 60, 0.897);
+      padding:6px 10px;border-radius:999px;
+      min-width:320px;max-width:520px;
+      transition:all .2s;
+    }
+
+    #contacts {
+    padding: 80px 0;
+    background: linear-gradient(135deg, #4d7066, #555763);
+    color: #b8aaaa;
+}
+
+.section-title {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-title h2 {
+    color: rgb(184, 32, 32);
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.section-title p {
+    color: rgba(255,255,255,0.8);
+    font-size: 1.1rem;
+}
+
+.contacts-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+}
+
+.contact-info {
+    flex: 1;
+    min-width: 300px;
+}
+
+.contact-info h3 {
+    font-size: 1.8rem;
+    margin-bottom: 20px;
+}
+
+.contact-details {
+    margin-top: 30px;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.contact-icon {
+    width: 50px;
+    height: 50px;
+    background: rgba(204, 75, 75, 0.644);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-right: 15px;
+    font-size: 20px;
+}
+
+.contact-form {
+    flex: 1;
+    min-width: 300px;
+    background: #f5eeee;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form h3 {
+    color: #1a2a6c;
+    margin-bottom: 20px;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    font-size: 16px;
+    font-family: inherit;
+}
+
+.form-group textarea {
+    height: 120px;
+    resize: vertical;
+}
+
+.btn {
+    display: inline-block;
+    background: #dddfe6;
+    color: #212cca;
+    padding: 12px 30px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background 0.3s;
+}
+
+.btn:hover {
+    background: #40b12a;
+}
+
+/* Footer Section */
+footer {
+    background: #0d1b4c;
+    color: #ad3b3b;
+    padding: 60px 0 20px;
+}
+
+.footer-content {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    margin-bottom: 40px;
+}
+
+.footer-column {
+    flex: 1;
+    min-width: 200px;
+}
+
+.footer-column h4 {
+    font-size: 1.3rem;
+    margin-bottom: 20px;
+    color: #4df0ac;
+}
+
+.footer-column p {
+    margin-bottom: 15px;
+    color: #ccc;
+    text-align: left;
+}
+
+.footer-links {
+    list-style: none;
+}
+
+.footer-links li {
+    margin-bottom: 10px;
+}
+
+.footer-links a {
+    color: #ccc;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer-links a:hover {
+    color: #4df0ac;
+}
+
+.social-links {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.social-links a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    background: rgba(168, 122, 122, 0.705);
+    border-radius: 50%;
+    color: rgb(250, 246, 8);
+    transition: background 0.3s;
+    text-decoration: none;
+}
+
+.social-links a:hover {
+    background: #2a3eb1;
+}
+
+.copyright {
+    text-align: center;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255,255,255,0.1);
+    color: #ccc;
+    font-size: 14px;
+}
+
+/* Responsive Styles */
+@media screen and (max-width: 1024px) {
+    .column {
+        flex: 1 0 calc(33.333% - 20px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .nav-links {
+        display: none;
+        flex-direction: column;
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #1a2a6c;
+        padding: 0;
     
-    #articles h2{color:rgb(7, 253, 7)}
-    #services h2{color:rgb(5, 245, 5)}
+    }
+
+    .nav-links.active {
+        display: flex;
+    }
+
+    .nav-links li {
+        text-align: center;
+        border-top: 1px solid rgba(255,255,255,0.1);
+    }
+
+    .column {
+        flex: 1 0 calc(50% - 20px);
+    }
     
+    .contacts-content {
+        flex-direction: column;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .column {
+        flex: 1 0 100%;
+    }
+    
+    h2 {
+        font-size: 2.2rem;
+    }
+    
+    .main {
+        margin-top: 80px;
+    }
+    
+    .footer-content {
+        flex-direction: column;
+        gap: 30px;
+    }
+    
+    .clearfix {
+        width: 160px;
+        right: 10px;
+        bottom: 20px;
+    }
+}
+
+    .nav-search input{
+      border:none;background:transparent;color:#fff;outline:none;font-size:0.95rem;width:100%;
+    }
+    .nav-search .fa-magnifying-glass{color:rgba(255,255,255,0.85)}
     .mobile-menu-toggle{display:none;font-size:1.3rem;cursor:pointer;color:white;background:rgba(52,152,219,0.85);padding:8px;border-radius:8px}
-    .mobile-nav{display:none;background:linear-gradient(135deg,#2c3e50,#34495e);padding:1rem 0;position:absolute;top:100%;left:0;width:100%}
+
+    /* mobile nav */
+    .mobile-nav{display:none;background:linear-gradient(135deg,#2c3e50,#34495e);padding:1rem 0;position:absolute;top:100%;left:0;width:100%;box-shadow:0 10px 30px rgba(0,0,0,0.2);border-top:2px solid #3498db}
     .mobile-nav.active{display:block}
     .mobile-nav ul{list-style:none;text-align:center}
     .mobile-nav a{display:block;color:#fff;padding:10px 0;text-decoration:none;border-bottom:1px solid rgba(255,255,255,0.06)}
 
-    .slideshow-container{background:linear-gradient(135deg,#1a2a3a 0%,#2c3e50 100%);color:#fff;padding:28px 0;overflow:hidden;position:relative}
+    /* ---------- Slideshow Ticker ---------- */
+    .slideshow-container{background:linear-gradient(135deg,#1a2a3a 0%,#2c3e50 100%);color:#fff;padding:28px 0;overflow:hidden;position:relative;border-bottom:4px solid #3498db;box-shadow:0 5px 25px rgba(0,0,0,0.15)}
     .slideshow-wrap{position:relative;display:flex;align-items:center;gap:20px}
+    /* Ticker label — adjusted so it doesn't hide */
     .ticker-label{
       display:flex;align-items:center;justify-content:center;
       background:linear-gradient(45deg,#e74c3c,#c0392b);
       color:white;padding:12px 18px;border-radius:12px;
       font-weight:800;font-size:1.05rem;min-width:140px;max-width:220px;z-index:2;
+      box-shadow:3px 6px 20px rgba(0,0,0,0.3);
     }
     .slideshow-content{
-      flex:1;position:relative;border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.06);height:260px;
+      flex:1;position:relative;border-radius:14px;overflow:hidden;background:rgba(255,255,255,0.06);backdrop-filter:blur(6px);height:260px;
       display:flex;align-items:center;justify-content:center;padding:14px;
     }
-    .ticker-slide{position:absolute;inset:0;display:flex;align-items:center;opacity:0;transition:opacity .6s ease;pointer-events:none}
+    .ticker-slide{position:absolute;inset:0;display:flex;align-items:center;opacity:0;transition:opacity .6s ease,transform .45s ease;pointer-events:none}
     .ticker-slide.active{opacity:1;pointer-events:auto}
-    .ticker-box{display:flex;width:100%;height:100%;background:white;border-radius:12px;overflow:hidden;box-shadow:0 12px 35px rgba(0,0,0,0.18)}
+    .ticker-box{display:flex;width:100%;height:100%;background:white;border-radius:12px;overflow:hidden;box-shadow:0 12px 35px rgba(0,0,0,0.18);transition:transform .3s ease}
+    .ticker-box:hover{transform:translateY(-6px)}
     .ticker-image{width:38%;height:100%;position:relative;overflow:hidden}
-    .ticker-image img{width:100%;height:100%;object-fit:cover}
+    .ticker-image img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease}
+    .ticker-box:hover .ticker-image img{transform:scale(1.06)}
     .ticker-content{width:62%;padding:18px 22px;display:flex;flex-direction:column;justify-content:space-between}
     .ticker-category{display:inline-block;background:linear-gradient(45deg,#3498db,#2980b9);color:#fff;padding:6px 12px;border-radius:20px;font-size:.75rem;font-weight:700;text-transform:uppercase}
     .ticker-title{font-size:1.25rem;color:#2c3e50;font-weight:800;margin:8px 0;line-height:1.2}
@@ -51,17 +336,19 @@
     .ticker-link{display:inline-block;background:linear-gradient(45deg,#e74c3c,#c0392b);color:#fff;padding:8px 14px;border-radius:999px;text-decoration:none;font-weight:700;align-self:flex-start}
     .slideshow-indicators{position:absolute;bottom:14px;right:18px;display:flex;gap:8px;z-index:3}
     .indicator{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,.4);cursor:pointer;transition:transform .18s}
-    .indicator.active{background:#fff;transform:scale(1.25)}
+    .indicator.active{background:#fff;transform:scale(1.25);box-shadow:0 0 8px rgba(255,255,255,.45)}
 
+    /* ---------- Section Titles ---------- */
     .section-title{font-size:2.2rem;margin:40px 0 28px;text-align:center;color:#2c3e50;font-weight:800}
     .section-title::after{content:'';display:block;width:84px;height:6px;background:linear-gradient(45deg,#3498db,#e74c3c);margin:12px auto;border-radius:4px}
 
+    /* ---------- Posts Grid (Chrome Discover style) ---------- */
     .blog-section{margin:40px 0}
     .blog-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px}
     .post-card{
       background:#fff;border-radius:12px;overflow:hidden;box-shadow:0 10px 30px rgba(0,0,0,0.08);
       display:flex;flex-direction:column;cursor:pointer;transition:transform .25s,box-shadow .25s;
-      text-decoration:none;color:inherit;
+      text-decoration:none;color:inherit;border:1px solid rgba(0,0,0,0.04)
     }
     .post-card:hover{transform:translateY(-8px);box-shadow:0 22px 40px rgba(0,0,0,0.12)}
     .post-figure{height:180px;background:#eee;overflow:hidden}
@@ -70,19 +357,68 @@
     .post-body{padding:14px 16px;display:flex;flex-direction:column;gap:10px}
     .post-meta{display:flex;justify-content:space-between;font-size:.82rem;color:#7f8c8d}
     .post-title{font-size:1.02rem;font-weight:800;color:#222;line-height:1.25}
-    .post-excerpt{font-size:.95rem;color:#555;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+    .post-excerpt {
+  font-size: .95rem;
+  color: #555;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+overflow:hidden}
+    .post-footer{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:8px}
     .post-views{font-size:.82rem;color:#7f8c8d}
     .post-date{font-size:.82rem;color:#7f8c8d}
+    /* clickable overlay for accessibility (we also add click listeners) */
+    .post-card a.card-link{position:absolute;inset:0;text-indent:-9999px;overflow:hidden}
 
+    /* button that opens Google */
+    .open-google-btn {
+      background: linear-gradient(45deg,#2ecc71,#27ae60);
+      color: white;
+      border: none;
+      padding: 8px 12px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-weight:700;
+      align-self:flex-start;
+      transition:transform .15s,box-shadow .15s;
+    }
+    .open-google-btn:hover { transform:translateY(-3px); box-shadow:0 8px 20px rgba(39,174,96,0.18); }
+
+    /* ---------- Services & Footer kept mostly same (brief) ---------- */
+    .services-section{margin:60px 0}
+    .services-container{position:relative;overflow:hidden;padding:0 60px}
+    .services-scroll{display:flex;gap:22px;overflow-x:auto;padding:20px 0;scroll-behavior:smooth}
+    .service-card{min-width:280px;background:#fff;border-radius:12px;padding:0;box-shadow:0 8px 25px rgba(0,0,0,0.08);flex-shrink:0}
+    .service-image{height:150px;overflow:hidden}
+    .service-image img{width:100%;height:100%;object-fit:cover}
+
+    footer{background:linear-gradient(135deg,#2c3e50,#34495e);color:#fff;padding:50px 0;margin-top:60px;border-top:4px solid #3498db}
+    .footer-content{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:28px}
+
+    /* ---------- Scroll to top button ---------- */
+    .scroll-to-top{position:fixed;bottom:30px;right:30px;background:linear-gradient(45deg,#3498db,#2980b9);color:#fff;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 20px rgba(52,152,219,0.4);z-index:1400;opacity:0;visibility:hidden;transition:all .25s}
+    .scroll-to-top.visible{opacity:1;visibility:visible;transform:translateY(-4px)}
+
+    /* ---------- Loading fade ---------- */
+    body.loaded .slideshow-container, body.loaded .blog-section, body.loaded .services-section{animation:fadeInUp .6s ease}
+    @keyframes fadeInUp{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+
+    /* ---------- Responsive ---------- */
+    @media (max-width:992px){.container{padding:0 28px}.nav-search{min-width:260px}}
     @media (max-width:768px){
       .header-content{flex-direction:column;gap:12px}
       .desktop-nav{display:none}
       .mobile-menu-toggle{display:block;position:absolute;right:14px;top:50%;transform:translateY(-50%)}
+      .nav-search{min-width:unset;width:100%;max-width:100%}
+      .slideshow-content{height:190px}
+      .ticker-label{display:block;width:100%;order:-1;border-radius:10px;padding:12px}
       .slideshow-content{height:200px;padding:8px}
       .ticker-box{flex-direction:column}
       .ticker-image{width:100%;height:110px}
       .ticker-content{width:100%}
     }
+    @media (max-width:576px){.post-figure{height:140px}.ticker-image{height:100px}}
   </style>
 </head>
 <body>
@@ -93,7 +429,8 @@
         <div class="logo">TechBlog</div>
       </div>
 
-      <nav class="desktop-nav">
+      <!-- nav left -->
+      <nav class="desktop-nav" aria-label="Primary">
         <ul>
           <li><a href="#home">Home</a></li>
           <li><a href="#services">Services</a></li>
@@ -103,10 +440,19 @@
         </ul>
       </nav>
 
-      <div class="mobile-menu-toggle"><i class="fas fa-bars"></i></div>
+      <!-- search inside nav (center) -->
+      <div class="nav-search" title="Search posts and ticker">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input id="global-search" type="search" placeholder="Search articles & featured posts (title, category, excerpt)" aria-label="Search posts">
+        <button id="clear-search" style="background:transparent;border:none;color:rgba(255,255,255,0.8);cursor:pointer;display:none"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <!-- mobile menu toggle -->
+      <div class="mobile-menu-toggle" aria-expanded="false" title="Toggle menu"><i class="fas fa-bars"></i></div>
     </div>
 
-    <nav class="mobile-nav">
+    <!-- mobile nav -->
+    <nav class="mobile-nav" aria-hidden="true">
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#services">Services</a></li>
@@ -117,89 +463,477 @@
     </nav>
   </header>
 
+  <!-- Featured Ticker -->
   <div class="slideshow-container">
     <div class="container slideshow-wrap">
       <div class="ticker-label">Featured Posts</div>
       <div class="slideshow-content">
-        <div class="slideshow-inner slideshow-content-inner"></div>
-        <div class="slideshow-indicators"></div>
+        <div class="slideshow-inner slideshow-content-inner">
+          <!-- slides injected by JS -->
+        </div>
+        <div class="slideshow-indicators" aria-hidden="true"></div>
       </div>
     </div>
   </div>
 
   <div class="container">
-    <section id="articles" class="blog-section">
-      <h2 class="section-title">Latest Articles</h2>
-      <div id="blog-posts" class="blog-grid"></div>
+    <!-- Search results / Articles -->
+    <section id="articles" class="blog-section" aria-labelledby="articles-title">
+      <h2 id="articles-title" class="section-title">Latest Articles</h2>
+      <div id="blog-posts" class="blog-grid">
+        <!-- posts injected by JS -->
+      </div>
+    </section>
+
+    <!-- Services (kept simple) -->
+    <section id="services" class="services-section">
+      <h2 class="section-title">Our Services</h2>
+      <div class="services-container">
+        <div class="services-scroll">
+          <!-- service cards (static from your HTML) -->
+          <div class="service-card">
+            <div class="service-image"><img src="https://images.unsplash.com/photo-1555066931-4365d14bab8c?auto=format&fit=crop&w=800&q=60" alt=""></div>
+            <div style="padding:14px"><h3>Web Development</h3><p>Custom websites and web applications.</p></div>
+          </div>
+          <div class="service-card">
+            <div class="service-image"><img src="https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=60" alt=""></div>
+            <div style="padding:14px"><h3>Mobile Apps</h3><p>iOS & Android apps.</p></div>
+          </div>
+          <div class="service-card">
+            <div class="service-image"><img src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=60" alt=""></div>
+            <div style="padding:14px"><h3>Cloud</h3><p>Cloud architecture & migration.</p></div>
+          </div>
+        </div>
+      </div>
     </section>
   </div>
 
+  <section id="contacts">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Get in touch to discuss your technology needs or request a consultation</p>
+            </div>
+            <div class="contacts-content">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <p>We'd love to hear from you. Reach out to schedule your consultation or learn more about our technology services.</p>
+                    
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-map-marker-alt"></i>
+                            </div>
+                            <div>
+                                <h4>Our Location</h4>
+                                <p>Kirinyaga County, Kutus Next Rubis Petrol Station</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-phone"></i>
+                            </div>
+                            <div>
+                                <h4>Phone Number</h4>
+                                <p>+254 75757 9531</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-envelope"></i>
+                            </div>
+                            <div>
+                                <h4>Email Address</h4>
+                                <p>geoffreymuthoka200@gmail.com</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">
+                                <i class="fas fa-clock"></i>
+                            </div>
+                            <div>
+                                <h4>Working Hours</h4>
+                                <p>Mon - Sat: 8:00 AM - 6:00 PM</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-form">
+                    <h3>Send Us a Message</h3>
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" placeholder="Subject">
+                        </div>
+                        <div class="form-group">
+                            <textarea placeholder="Your Message" required></textarea>
+                        </div>
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer Section -->
+    <footer id="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>TechGeo Solutions</h4>
+                    <p>Providing cutting-edge software development and cybersecurity solutions with expertise and innovation for over 5 years.</p>
+                    <div class="social-links">
+                        <a href="https://www.facebook.com/profile.php?id=61551668602567"><i class="fab fa-facebook-f"></i></a>
+                        <a href="https://www.instagram.com/freelancer_ke1?utm_source=qr&igsh=MTV0ZDN1azg2enc4OQ=="><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/254757579531"><i class="fab fa-whatsapp"></i></a>
+                        <a href="https://youtube.com/@freelancer_ke1?si=xI40shhYNDqNOCK3"><i class="fab fa-youtube"></i></a>
+                        <a href="https://www.tiktok.com/@geotechn?_t=ZM-90oyN5SDDDw&_r=1"><i class="fab fa-tiktok"></i></a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#footer">About Us</a></li>
+                        <li><a href="#services">Services</a></li>
+                        <li><a href="#contacts">Contact</a></li>
+                        <li><a href="#articles">Projects</a></li>
+                        <li><a href="#">Careers</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Our Services</h4>
+                    <ul class="footer-links">
+                        <li><a href="#">Software Development</a></li>
+                        <li><a href="#">Cybersecurity</a></li>
+                        <li><a href="#">Cloud Solutions</a></li>
+                        <li><a href="#">Data Analytics</a></li>
+                        <li><a href="#">IT Consulting</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe to our newsletter for tech insights and company updates.</p>
+                    <div class="form-group">
+                        <input type="email" placeholder="Your Email">
+                    </div>
+                    <button class="btn">Subscribe</button>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2023 TechGeo Solutions. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+  <button id="scrollTop" class="scroll-to-top" aria-label="Scroll to top"><i class="fa-solid fa-chevron-up"></i></button>
+
+  <!-- ===== JavaScript ===== -->
   <script>
+    /***** Data: blogPosts (edit this array to add posts).
+          For a new post include: id, title, excerpt, category, image, link, date (YYYY-MM-DD).
+          Views are synchronized with localStorage automatically.
+    *****/
     const blogPosts = [
-      { id: 1, title: "The Future of AI in Everyday Applications", excerpt: "Discover how artificial intelligence is transforming our daily lives...", category: "Artificial Intelligence", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60", link: "#", date: "2023-10-15", views: 1245 },
-      { id: 2, title: "Modern CSS Techniques You Should Know", excerpt: "Explore the latest CSS features that can make your websites more responsive...", category: "Web Development", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=60", link: "#", date: "2023-10-12", views: 892 },
+      { id: 1, title: "The Future of AI in Everyday Applications", excerpt: "Discover how artificial intelligence is transforming our daily lives and what to expect in the coming years...", category: "Artificial Intelligence", image: "https://images.unsplash.com/photo-1677442136019-21780ecad995?auto=format&fit=crop&w=800&q=60", link: "https://geomuth.github.io/software/", date: "2023-10-15", views: 1245 },
+      { id: 2, title: "Modern CSS Techniques You Should Know", excerpt: "Explore the latest CSS features that can make your websites more responsive and visually appealing...", category: "Web Development", image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=800&q=60", link: "https://geomuth.github.io/software/", date: "2023-10-12", views: 892 },
+      { id: 3,
+         title: "Protecting Your Digital Identity in 2023", 
+         excerpt: "Learn essential strategies to safeguard your personal information online from emerging threats...", 
+         category: "Cybersecurity", 
+         image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?auto=format&fit=crop&w=800&q=60",
+         link: "https://geomuth.github.io/software/",
+         date: "2023-10-08", 
+         views: 1567 },
+      { id: 4, title: "Comparing the Top Cloud Service Providers", excerpt: "An in-depth analysis of AWS, Azure, and Google Cloud to help you choose the right platform...", category: "Cloud Computing", image: "https://images.unsplash.com/photo-1451187580459-43490279c0fa?auto=format&fit=crop&w=800&q=60", link: "https://geomuth.github.io/software/", date: "2023-10-05", views: 1034 },
+      { id: 5, title: "The Evolution of Smartphone Displays", excerpt: "From LCD to OLED and beyond: tracing the technological advancements in smartphone screens...", category: "Mobile Technology", image: "https://images.unsplash.com/photo-1512941937669-90a1b58e7e9c?auto=format&fit=crop&w=800&q=60", link: "https://geomuth.github.io/software/", date: "2023-10-01", views: 756 },
+      { id: 6, title: "Big Data Analytics for Business Growth", excerpt: "How companies are leveraging data analytics to drive decision-making and improve performance...", category: "Data Science", image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=800&q=60", link: "https://geomuth.github.io/software/", date: "2023-09-28", views: 1123 },
+      { id: 7, title: "Blockchain Technology: Beyond Cryptocurrency", excerpt: "Exploring the diverse applications of blockchain in supply chain, healthcare, and digital identity...", category: "Blockchain", image: "https://images.unsplash.com/photo-1639762681485-074b7f938ba0?auto=format&fit=crop&w=800&q=60", link: "https://geomuth.github.io/software/", date: "2023-09-25", views: 893 },
+      { id: 8, title: "The Rise of Edge Computing", excerpt: "How edge computing is revolutionizing data processing and reducing latency for IoT devices...", category: "Edge Computing", image: "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?auto=format&fit=crop&w=800&q=60", link: "https://geomuth.github.io/software/", date: "2023-09-20", views: 678 }
     ];
 
+    /* ---------- Utilities ---------- */
+    const utils = {
+      formatNumber: (num) => num.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ","),
+      getRelativeTime: (dateString) => {
+        const date = new Date(dateString);
+        const now = new Date();
+        const diffTime = Math.abs(now - date);
+        const diffDays = Math.ceil(diffTime / (1000 * 60 * 60 * 24));
+        if (diffDays === 1) return "Yesterday";
+        if (diffDays < 7) return `${diffDays} days ago`;
+        if (diffDays < 30) return `${Math.floor(diffDays / 7)} weeks ago`;
+        if (diffDays < 365) return `${Math.floor(diffDays / 30)} months ago`;
+        return `${Math.floor(diffDays / 365)} years ago`;
+      },
+      debounce: (fn, wait=220) => {
+        let t;
+        return (...a) => { clearTimeout(t); t = setTimeout(() => fn(...a), wait); };
+      }
+    };
+
+    /* ---------- Persistence for view counts ---------- */
+    function loadStoredViews() {
+      try {
+        const raw = localStorage.getItem('techblog_views_v1');
+        if (!raw) return;
+        const map = JSON.parse(raw);
+        blogPosts.forEach(p => { if (map[p.id] !== undefined) p.views = map[p.id]; });
+      } catch (e) { console.warn('Could not load stored views', e); }
+    }
+    function saveStoredViews() {
+      try {
+        const map = {};
+        blogPosts.forEach(p => map[p.id] = p.views);
+        localStorage.setItem('techblog_views_v1', JSON.stringify(map));
+      } catch (e) { console.warn('Could not save views', e); }
+    }
+
+    /* ---------- Render Slideshow / Ticker ---------- */
     function initSlideshowTicker(posts) {
       const container = document.querySelector('.slideshow-inner');
       const indicatorsContainer = document.querySelector('.slideshow-indicators');
       container.innerHTML = '';
       indicatorsContainer.innerHTML = '';
 
-      const slideshowPosts = posts.slice(0, 2);
+      const slideshowPosts = posts.slice(0, 6);
       slideshowPosts.forEach((post, idx) => {
+        const d = new Date(post.date);
+        const formatted = d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' });
+
         const slide = document.createElement('div');
         slide.className = 'ticker-slide' + (idx===0 ? ' active' : '');
+        slide.setAttribute('data-post-id', post.id);
         slide.innerHTML = `
-          <div class="ticker-box">
-            <div class="ticker-image"><img src="${post.image}" alt="${post.title}"></div>
+          <div class="ticker-box" role="article" aria-label="${escapeHtml(post.title)}">
+            <div class="ticker-image"><img src="${post.image}" alt="${escapeHtml(post.title)}"></div>
             <div class="ticker-content">
               <div>
-                <span class="ticker-category">${post.category}</span>
-                <h3 class="ticker-title">${post.title}</h3>
-                <div class="ticker-meta"><span>${new Date(post.date).toLocaleDateString()}</span><span>${post.views} views</span></div>
+                <span class="ticker-category">${escapeHtml(post.category)}</span>
+                <h3 class="ticker-title">${escapeHtml(post.title)}</h3>
+                <div class="ticker-meta"><span>${formatted}</span><span>${utils.formatNumber(post.views)} views</span></div>
               </div>
-              <a class="ticker-link" href="${post.link}">Read More</a>
+              <a class="ticker-link" href="${post.link}" target="_blank" rel="noopener noreferrer" data-post-id="${post.id}">Open</a>
             </div>
           </div>
         `;
         container.appendChild(slide);
+
+        const indicator = document.createElement('div');
+        indicator.className = 'indicator' + (idx===0 ? ' active' : '');
+        indicator.setAttribute('data-slide', idx);
+        indicatorsContainer.appendChild(indicator);
+        indicator.addEventListener('click', () => { showSlide(idx); resetAutoScroll(); });
       });
+
+      const slides = Array.from(document.querySelectorAll('.ticker-slide'));
+      const indicators = Array.from(document.querySelectorAll('.indicator'));
+      let currentSlide = 0;
+      let autoInterval = null;
+
+      function showSlide(i){
+        if (!slides[i]) return;
+        slides.forEach(s => s.classList.remove('active'));
+        indicators.forEach(ind => ind.classList.remove('active'));
+        slides[i].classList.add('active');
+        indicators[i].classList.add('active');
+        currentSlide = i;
+      }
+      function nextSlide(){ showSlide((currentSlide+1) % slides.length); }
+      function startAuto(){ stopAuto(); autoInterval = setInterval(nextSlide, 4500); }
+      function stopAuto(){ if (autoInterval) clearInterval(autoInterval); autoInterval = null; }
+      function resetAutoScroll(){ stopAuto(); startAuto(); }
+
+      // hookup link clicks to increment views
+      container.querySelectorAll('.ticker-link').forEach(a => {
+        a.addEventListener('click', (e) => {
+          const id = parseInt(a.getAttribute('data-post-id'));
+          incrementView(id);
+        });
+      });
+
+      // pause on hover
+      container.addEventListener('mouseenter', stopAuto);
+      container.addEventListener('mouseleave', startAuto);
+
+      startAuto();
     }
 
+    /* ---------- Render Blog Posts (Chrome Discover style) ---------- */
     function initBlogPosts(posts) {
       const grid = document.getElementById('blog-posts');
       grid.innerHTML = '';
-      posts.forEach(post => {
+      posts.forEach(post=>{
+        const d = new Date(post.date);
+        const formatted = d.toLocaleDateString(undefined, { year:'numeric', month:'short', day:'numeric' });
         const card = document.createElement('article');
         card.className = 'post-card';
+        card.setAttribute('data-post-id', post.id);
+
+        // Make whole card clickable but keep accessibility
         card.innerHTML = `
-          <div class="post-figure"><img src="${post.image}" alt="${post.title}"></div>
+          <div class="post-figure"><img src="${post.image}" alt="${escapeHtml(post.title)}"></div>
           <div class="post-body">
-            <div class="post-meta">
-              <span class="post-date">${new Date(post.date).toLocaleDateString()}</span>
-              <span class="post-views">${post.views} views</span>
-            </div>
-            <div class="post-title">${post.title}</div>
-            <div class="post-excerpt">${post.excerpt}</div>
+            <div class="post-meta"><span class="post-date">Posted on ${formatted}</span><span class="post-views">${utils.formatNumber(post.views)} views</span></div>
+            <div class="post-title">${escapeHtml(post.title)}</div>
+            <div class="post-excerpt">${escapeHtml(post.excerpt)}</div>
+            <div class="post-footer"><span class="post-category-tag">${escapeHtml(post.category)}</span></div>
+            <a class="card-link" href="${post.link}" target="_blank" rel="noopener noreferrer">Open</a>
+            <!-- ADDED: Google button that opens google.com and increments view count -->
+            <button class="open-google-btn" data-post-id="${post.id}">view project</button>
           </div>
         `;
+        // click handler - increments and opens in new tab (original behavior)
+        card.addEventListener('click', (e)=>{
+          // avoid double-handling if a link inside card was clicked - still increment
+          const postId = post.id;
+          incrementView(postId);
+          // open link in new tab
+          const win = window.open(post.link, '_blank', 'noopener');
+          if (win) win.focus();
+        });
+
+        // Attach handler for the Google button (stop propagation so card click doesn't also fire)
+        // We'll add this after appending to DOM so the selector works
         grid.appendChild(card);
+      });
+
+      // Attach google button handlers (after all cards are appended)
+      document.querySelectorAll('.open-google-btn').forEach(btn => {
+        btn.addEventListener('click', (e) => {
+          e.stopPropagation(); // prevent card click opening the post link
+          const id = parseInt(btn.getAttribute('data-post-id'));
+          incrementView(id); // increment view for that post
+          window.open('_blank', 'noopener');
+        });
       });
     }
 
+    /* ---------- View counting ---------- */
+    function incrementView(postId){
+      const post = blogPosts.find(p => p.id === postId);
+      if (!post) return;
+      post.views = (post.views || 0) + 1;
+      saveStoredViews();
+      // update UI elements showing views in posts
+      const postCards = document.querySelectorAll('.post-card');
+      postCards.forEach(card=>{
+        if (parseInt(card.getAttribute('data-post-id')) === postId){
+          const el = card.querySelector('.post-views');
+          if (el) el.textContent = utils.formatNumber(post.views) + ' views';
+        }
+      });
+      // update slideshow view
+      const slideView = document.querySelector('.slideshow-inner .ticker-slide[data-post-id="'+postId+'"] .ticker-meta');
+      if (slideView){
+        const spans = slideView.querySelectorAll('span');
+        if (spans.length > 1) spans[1].textContent = utils.formatNumber(post.views) + ' views';
+      }
+    }
+
+    /* ---------- Search (filters both posts & ticker) ---------- */
+    function performSearch(query){
+      const q = (query || '').trim().toLowerCase();
+      // filter posts
+      const filtered = blogPosts.filter(p => {
+        if (!q) return true;
+        return [p.title, p.excerpt, p.category].join(' ').toLowerCase().includes(q);
+      });
+      initBlogPosts(filtered);
+      initSlideshowTicker(filtered); // rebuild ticker using filtered set (first 6)
+    }
+
+    /* ---------- Helpers ---------- */
+    function escapeHtml(s){
+      if (!s) return '';
+      return String(s).replaceAll('&','&amp;').replaceAll('<','&lt;').replaceAll('>','&gt;').replaceAll('"','&quot;').replaceAll("'",'&#39;');
+    }
+
+    /* ---------- Mobile nav ---------- */
     function initMobileNavigation(){
       const toggle = document.querySelector('.mobile-menu-toggle');
       const mobileNav = document.querySelector('.mobile-nav');
-      toggle.addEventListener('click', ()=>{
+      toggle && toggle.addEventListener('click', ()=>{
+        const icon = toggle.querySelector('i');
         mobileNav.classList.toggle('active');
+        const open = mobileNav.classList.contains('active');
+        toggle.setAttribute('aria-expanded', open);
+        icon.classList.toggle('fa-bars', !open);
+        icon.classList.toggle('fa-times', open);
+      });
+      // close on link
+      document.querySelectorAll('.mobile-nav a').forEach(a=> a.addEventListener('click', ()=> {
+        document.querySelector('.mobile-nav')?.classList.remove('active');
+        const icon = document.querySelector('.mobile-menu-toggle i');
+        if (icon){ icon.classList.remove('fa-times'); icon.classList.add('fa-bars'); }
+      }));
+      // close clicking outside
+      document.addEventListener('click', (e)=>{
+        const mobile = document.querySelector('.mobile-nav');
+        const toggleEl = document.querySelector('.mobile-menu-toggle');
+        if (!mobile || !mobile.classList.contains('active')) return;
+        if (!e.target.closest('.mobile-nav') && !e.target.closest('.mobile-menu-toggle')) {
+          mobile.classList.remove('active');
+          const icon = toggleEl.querySelector('i');
+          icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+        }
       });
     }
 
+    /* ---------- Smooth anchor scrolling ---------- */
+    function initSmoothScrolling(){
+      document.querySelectorAll('a[href^="#"]').forEach(a=>{
+        a.addEventListener('click', e=>{
+          e.preventDefault();
+          const target = document.querySelector(a.getAttribute('href'));
+          if (target) target.scrollIntoView({behavior:'smooth', block:'start'});
+        });
+      });
+    }
+
+    /* ---------- Scroll to top ---------- */
+    function initScrollToTop(){
+      const btn = document.getElementById('scrollTop');
+      window.addEventListener('scroll', () => {
+        if (window.scrollY > 360) btn.classList.add('visible'); else btn.classList.remove('visible');
+      });
+      btn.addEventListener('click', ()=> window.scrollTo({top:0,behavior:'smooth'}));
+    }
+
+    /* ---------- Init everything on DOM ready ---------- */
     document.addEventListener('DOMContentLoaded', function(){
+      loadStoredViews();
       initBlogPosts(blogPosts);
       initSlideshowTicker(blogPosts);
       initMobileNavigation();
+      initSmoothScrolling();
+      initScrollToTop();
+
+      // Search wiring
+      const input = document.getElementById('global-search');
+      const clearBtn = document.getElementById('clear-search');
+      const debouncedSearch = utils.debounce((v)=>{
+        performSearch(v);
+        clearBtn.style.display = v.trim() ? 'inline-block' : 'none';
+      }, 220);
+      input.addEventListener('input', (e)=> debouncedSearch(e.target.value));
+      clearBtn.addEventListener('click', ()=> { input.value=''; performSearch(''); clearBtn.style.display='none'; input.focus(); });
+
+      // make posts clickable via keyboard too
+      document.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter'){
+          const el = document.activeElement;
+          if (el && el.classList.contains('post-card')) el.click();
+        }
+      });
+
+      // visual ready
+      document.body.classList.add('loaded');
     });
   </script>
 </body>
